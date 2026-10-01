@@ -4,9 +4,9 @@ const Part = (props) => <p>{props.name} {props.units} units</p>
 
 const Content = (props) => (
   <div>
-    <Part name={props.part1} units={props.units1} />
-    <Part name={props.part2} units={props.units2} />
-    <Part name={props.part3} units={props.units3} />
+    <Part name={props.part1.name} units={props.part1.units} />
+    <Part name={props.part2.name} units={props.part2.units} />
+    <Part name={props.part3.name} units={props.part3.units} />
   </div>
 )
 
@@ -18,22 +18,15 @@ const Footer = (props) => (
 
 const App = () => {
   const course = 'CSIT321'
-  const part1 = 'RIZAL031'
-  const units1 = 3
-  const part2 = 'IT365'
-  const units2 = 3
-  const part3 = 'IT317'
-  const units3 = 3
+  const part1 = { name: 'RIZAL031', units: 3 }
+  const part2 = { name: 'IT365', units: 3 }
+  const part3 = { name: 'IT317', units: 3 }
 
   return (
     <div>
       <Header course={course} />
-      <Content
-        part1={part1} units1={units1}
-        part2={part2} units2={units2}
-        part3={part3} units3={units3}
-      />
-      <Total total={units1 + units2 + units3} />
+      <Content part1={part1} part2={part2} part3={part3} />
+      <Total total={part1.units + part2.units + part3.units} />
       <Footer name="Ashlee Faye D. Batayola" code="CSIT340" section="G7" />
     </div>
   )
